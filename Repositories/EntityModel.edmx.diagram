@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a0f45cc67ab74010ac144b3d0b482ed8" Name="Diagram1">
+        <EntityTypeShape EntityType="CandidateTrackerModel.candidateMaster" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CandidateTrackerModel.candidateSkillMapping" Width="1.5" PointX="10" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CandidateTrackerModel.cityMaster" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CandidateTrackerModel.clientVendorMaster" Width="1.5" PointX="0.75" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="CandidateTrackerModel.countryMaster" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CandidateTrackerModel.locationMaster" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CandidateTrackerModel.requirementSkillMapping" Width="1.5" PointX="10" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CandidateTrackerModel.requirementVendorMapping" Width="1.5" PointX="5.25" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="CandidateTrackerModel.requirmentMaster" Width="1.5" PointX="3" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CandidateTrackerModel.requirmentVendorMapping" Width="1.5" PointX="3" PointY="27.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CandidateTrackerModel.skillMaster" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CandidateTrackerModel.stateMaster" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CandidateTrackerModel.userMaster" Width="1.5" PointX="1.5" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CandidateTrackerModel.userType" Width="1.5" PointX="1.5" PointY="23.375" IsExpanded="true" />
+        <AssociationConnector Association="CandidateTrackerModel.FK__requireme__candi__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="CandidateTrackerModel.FK__candidate__skill__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="CandidateTrackerModel.FK__locationM__cityI__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="CandidateTrackerModel.FK__clientVen__userM__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="CandidateTrackerModel.FK__requireme__clien__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="CandidateTrackerModel.FK__requirmen__clien__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="CandidateTrackerModel.FK__requirmen__clien__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="CandidateTrackerModel.FK__locationM__count__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="CandidateTrackerModel.FK__stateMast__count__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="CandidateTrackerModel.FK__locationM__requi__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="CandidateTrackerModel.FK__locationM__state__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="CandidateTrackerModel.FK__requireme__skill__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="CandidateTrackerModel.FK__requireme__requi__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="CandidateTrackerModel.FK__userMaste__userT__36B12243" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CandidateTrackerModel.clientMaster" Width="1.5" PointX="9.625" PointY="10" />
+        <EntityTypeShape EntityType="CandidateTrackerModel.companyMaster" Width="1.5" PointX="7.375" PointY="10.375" />
+        <AssociationConnector Association="CandidateTrackerModel.FK_clientMaster_companyMaster" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

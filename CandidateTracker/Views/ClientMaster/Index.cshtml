@@ -1,0 +1,41 @@
+﻿@model CandidateTracker.Models.ClientMasterViewModel
+@{
+    ViewBag.Title = "Index";
+    var buttontext = "Create";
+    if (Model.FormAction.ToString().Equals("Edit"))
+    {
+        buttontext = "Update";
+    }
+}
+@using (Html.BeginForm(Model.FormAction.ToString(), "ClientMaster"))
+{
+<h2>Client Master</h2>
+<div>
+    <div>
+        @Html.LabelFor(d => d.companyViewModel.companyName)
+        @Html.DropDownListFor(m => m.companyViewModel.companyId, new SelectList(Model.ListcompanyViewModel, "companyId", "companyName"), "--Select--", new { @class = "form-control input-sm" })
+    </div>
+    <div>
+        @Html.LabelFor(d => d.contactPersonName)
+        @Html.TextBoxFor(d => d.contactPersonName)
+    </div>
+    <div>
+        @Html.LabelFor(d => d.emailid)
+        @Html.TextBoxFor(d => d.emailid)
+    </div>
+    <div>
+        @Html.LabelFor(d => d.phoneNumber)
+        @Html.TextBoxFor(d => d.phoneNumber)
+    </div>
+    <div>
+        @Html.LabelFor(d => d.companyAddress)
+        @Html.TextBoxFor(d => d.companyAddress)
+    </div>
+</div>
+<br />
+    <div>
+        <input type="submit" value="@buttontext" name="action" />
+        <input type="submit" value="Cancel" name="action" />
+    </div>
+}
+@Html.Action("List");

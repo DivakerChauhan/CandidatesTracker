@@ -1,0 +1,12 @@
+E:\Pojects (C)\Current Project\CandidateTracker\Repositories\bin\Debug\Repositories.dll
+E:\Pojects (C)\Current Project\CandidateTracker\Repositories\bin\Debug\Repositories.pdb
+E:\Pojects (C)\Current Project\CandidateTracker\Repositories\obj\Debug\Repositories.csprojResolveAssemblyReference.cache
+E:\Pojects (C)\Current Project\CandidateTracker\Repositories\obj\Debug\Repositories.dll
+E:\Pojects (C)\Current Project\CandidateTracker\Repositories\obj\Debug\Repositories.pdb
+E:\Pojects (C)\Current Project\CandidateTracker\Repositories\bin\Debug\Repositories.dll.config
+E:\Pojects (C)\Current Project\CandidateTracker\Repositories\bin\Debug\EntityFramework.dll
+E:\Pojects (C)\Current Project\CandidateTracker\Repositories\bin\Debug\EntityFramework.SqlServer.dll
+E:\Pojects (C)\Current Project\CandidateTracker\Repositories\bin\Debug\EntityFramework.xml
+E:\Pojects (C)\Current Project\CandidateTracker\Repositories\bin\Debug\EntityFramework.SqlServer.xml
+E:\Pojects (C)\Current Project\CandidateTracker\Repositories\bin\Debug\DocumentObjectModel.dll
+E:\Pojects (C)\Current Project\CandidateTracker\Repositories\bin\Debug\DocumentObjectModel.pdb

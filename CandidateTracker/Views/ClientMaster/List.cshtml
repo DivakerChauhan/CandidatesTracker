@@ -1,0 +1,54 @@
+﻿@model CandidateTracker.Models.ClientMasterDetailsViewModel
+@{
+    ViewBag.Title = "List";
+    Layout = null;
+}
+
+@if (Model.ClientMasterViewModelList.Count == 0)
+{
+
+    <div class="form-group col-xs-12 col-sm-12 no-record">
+        <span>No record Found</span>
+    </div>
+
+}
+else
+{
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <td>S.No.</td>
+                    <td>Company name</td>
+                    <td>Contact Person Name</td>
+                    <td>Email Id</td>
+                    <td>Contact Number</td>
+                    <td>Company Address</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+            <tbody>
+
+                @{
+                    var counter = 1;
+                    foreach (var item in Model.ClientMasterViewModelList)
+                    {
+                        <tr>
+                            <td>@(counter++)</td>
+                            <td>@item.companyViewModel.companyName </td>
+                            <td>@item.contactPersonName </td>
+                            <td>@item.emailid</td>
+                            <td>@item.phoneNumber </td>
+                            <td>@item.companyAddress </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Index", new { id = item.clientMasterId }, new { @class = "glyphicon glyphicon-edit" })
+                                @Html.ActionLink("Delete", "Delete", new { id = item.clientMasterId }, new { @class = "glyphicon glyphicon-trash" })
+                            </td>
+                        </tr>
+                    }
+                }
+
+            </tbody>
+        </table>
+    </div>
+                    }

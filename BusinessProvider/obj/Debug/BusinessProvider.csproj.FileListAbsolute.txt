@@ -1,0 +1,14 @@
+E:\Pojects (C)\Current Project\CandidateTracker\BusinessProvider\bin\Debug\BusinessProvider.dll
+E:\Pojects (C)\Current Project\CandidateTracker\BusinessProvider\bin\Debug\BusinessProvider.pdb
+E:\Pojects (C)\Current Project\CandidateTracker\BusinessProvider\obj\Debug\BusinessProvider.dll
+E:\Pojects (C)\Current Project\CandidateTracker\BusinessProvider\obj\Debug\BusinessProvider.pdb
+E:\Pojects (C)\Current Project\CandidateTracker\BusinessProvider\bin\Debug\Repositories.dll
+E:\Pojects (C)\Current Project\CandidateTracker\BusinessProvider\bin\Debug\EntityFramework.dll
+E:\Pojects (C)\Current Project\CandidateTracker\BusinessProvider\bin\Debug\Repositories.pdb
+E:\Pojects (C)\Current Project\CandidateTracker\BusinessProvider\bin\Debug\EntityFramework.xml
+E:\Pojects (C)\Current Project\CandidateTracker\BusinessProvider\obj\Debug\BusinessProvider.csprojResolveAssemblyReference.cache
+E:\Pojects (C)\Current Project\CandidateTracker\BusinessProvider\bin\Debug\DocumentObjectModel.dll
+E:\Pojects (C)\Current Project\CandidateTracker\BusinessProvider\bin\Debug\DocumentObjectModel.pdb
+E:\Pojects (C)\Current Project\CandidateTracker\BusinessProvider\bin\Debug\BusinessProvider.dll.config
+E:\Pojects (C)\Current Project\CandidateTracker\BusinessProvider\bin\Debug\EntityFramework.SqlServer.dll
+E:\Pojects (C)\Current Project\CandidateTracker\BusinessProvider\bin\Debug\EntityFramework.SqlServer.xml

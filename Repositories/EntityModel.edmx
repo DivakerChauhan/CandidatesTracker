@@ -1,0 +1,1188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CandidateTrackerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="candidateMaster">
+          <Key>
+            <PropertyRef Name="candidateId" />
+          </Key>
+          <Property Name="candidateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="candidateName" Type="varchar(max)" />
+          <Property Name="jobProfileName" Type="varchar(max)" />
+          <Property Name="experienceStartDate" Type="datetime" />
+          <Property Name="experienceEndDate" Type="datetime" />
+          <Property Name="mobileNumber" Type="varchar(max)" />
+          <Property Name="currentExperience" Type="int" />
+          <Property Name="attachedCv" Type="varchar(max)" />
+          <Property Name="createdBy" Type="varchar(max)" />
+          <Property Name="createdDate" Type="datetime" />
+          <Property Name="modifiedBy" Type="varchar(max)" />
+          <Property Name="modifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="candidateSkillMapping">
+          <Key>
+            <PropertyRef Name="candidateSkillId" />
+          </Key>
+          <Property Name="candidateSkillId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="skillId" Type="int" />
+          <Property Name="cvPath" Type="varchar(max)" />
+          <Property Name="createdBy" Type="varchar(max)" />
+          <Property Name="createdDate" Type="datetime" />
+          <Property Name="modifiedBy" Type="varchar(max)" />
+          <Property Name="modifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="cityMaster">
+          <Key>
+            <PropertyRef Name="cityId" />
+          </Key>
+          <Property Name="cityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cityName" Type="varchar(max)" />
+          <Property Name="createdBy" Type="varchar(max)" />
+          <Property Name="createdDate" Type="datetime" />
+          <Property Name="modifiedBy" Type="varchar(max)" />
+          <Property Name="modifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="clientMaster">
+          <Key>
+            <PropertyRef Name="clientMasterId" />
+          </Key>
+          <Property Name="clientMasterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="companyId" Type="int" Nullable="false" />
+          <Property Name="contactPersonName" Type="varchar" MaxLength="50" />
+          <Property Name="emailId" Type="nvarchar" MaxLength="100" />
+          <Property Name="phoneNo" Type="varchar" MaxLength="20" />
+          <Property Name="companyAddress" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="clientVendorMaster">
+          <Key>
+            <PropertyRef Name="clientVendorMaster_Id" />
+          </Key>
+          <Property Name="clientVendorMaster_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userMaster_Id" Type="int" />
+          <Property Name="createdBy" Type="varchar(max)" />
+          <Property Name="createdDate" Type="datetime" />
+          <Property Name="modifiedBy" Type="varchar(max)" />
+          <Property Name="modifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="companyMaster">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="countryMaster">
+          <Key>
+            <PropertyRef Name="countryId" />
+          </Key>
+          <Property Name="countryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="countryName" Type="varchar(max)" />
+          <Property Name="createdBy" Type="varchar(max)" />
+          <Property Name="createdDate" Type="datetime" />
+          <Property Name="modifiedBy" Type="varchar(max)" />
+          <Property Name="modifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="locationMaster">
+          <Key>
+            <PropertyRef Name="locationMaster_Id" />
+          </Key>
+          <Property Name="locationMaster_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="requirment_Id" Type="int" />
+          <Property Name="cityId" Type="int" />
+          <Property Name="countryId" Type="int" />
+          <Property Name="stateId" Type="int" />
+          <Property Name="createdBy" Type="varchar(max)" />
+          <Property Name="createdDate" Type="datetime" />
+          <Property Name="modifiedBy" Type="varchar(max)" />
+          <Property Name="modifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="requirementSkillMapping">
+          <Key>
+            <PropertyRef Name="requirementSkillId" />
+          </Key>
+          <Property Name="requirementSkillId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="skillId" Type="int" />
+          <Property Name="createdBy" Type="varchar(max)" />
+          <Property Name="createdDate" Type="datetime" />
+          <Property Name="modifiedBy" Type="varchar(max)" />
+          <Property Name="modifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="requirementVendorMapping">
+          <Key>
+            <PropertyRef Name="requirmentVendorMapping_Id" />
+          </Key>
+          <Property Name="requirmentVendorMapping_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="clientVendorMaster_Id" Type="int" />
+          <Property Name="requirment_Id" Type="int" />
+          <Property Name="candidateId" Type="int" />
+          <Property Name="createdBy" Type="varchar(max)" />
+          <Property Name="createdDate" Type="datetime" />
+          <Property Name="modifiedBy" Type="varchar(max)" />
+          <Property Name="modifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="requirmentMaster">
+          <Key>
+            <PropertyRef Name="requirment_Id" />
+          </Key>
+          <Property Name="requirment_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="clientVendorMaster_Id" Type="int" />
+          <Property Name="jobProfileName" Type="varchar(max)" />
+          <Property Name="experienceStartDate" Type="datetime" />
+          <Property Name="experienceEndDate" Type="datetime" />
+          <Property Name="salaryStartRange" Type="int" />
+          <Property Name="salaryEndRange" Type="int" />
+          <Property Name="createdBy" Type="varchar(max)" />
+          <Property Name="createdDate" Type="datetime" />
+          <Property Name="modifiedBy" Type="varchar(max)" />
+          <Property Name="modifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="requirmentVendorMapping">
+          <Key>
+            <PropertyRef Name="requirmentVendorMapping_Id" />
+          </Key>
+          <Property Name="requirmentVendorMapping_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="clientVendorMaster_Id" Type="int" />
+          <Property Name="createdBy" Type="varchar(max)" />
+          <Property Name="createdDate" Type="datetime" />
+          <Property Name="modifiedBy" Type="varchar(max)" />
+          <Property Name="modifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="skillMaster">
+          <Key>
+            <PropertyRef Name="skillId" />
+          </Key>
+          <Property Name="skillId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="skillName" Type="varchar(max)" />
+          <Property Name="createdBy" Type="varchar(max)" />
+          <Property Name="createdDate" Type="datetime" />
+          <Property Name="modifiedBy" Type="varchar(max)" />
+          <Property Name="modifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="stateMaster">
+          <Key>
+            <PropertyRef Name="stateId" />
+          </Key>
+          <Property Name="stateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="countryId" Type="int" />
+          <Property Name="stateName" Type="varchar(max)" />
+          <Property Name="createdBy" Type="varchar(max)" />
+          <Property Name="createdDate" Type="datetime" />
+          <Property Name="modifiedBy" Type="varchar(max)" />
+          <Property Name="modifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="userMaster">
+          <Key>
+            <PropertyRef Name="userMaster_Id" />
+          </Key>
+          <Property Name="userMaster_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userType_Id" Type="int" />
+          <Property Name="userName" Type="varchar(max)" />
+          <Property Name="userAddress" Type="varchar(max)" />
+          <Property Name="contactNumber" Type="varchar(max)" />
+          <Property Name="emailId" Type="varchar(max)" />
+          <Property Name="password" Type="varchar(max)" />
+          <Property Name="createdBy" Type="varchar(max)" />
+          <Property Name="createdDate" Type="datetime" />
+          <Property Name="modifiedBy" Type="varchar(max)" />
+          <Property Name="modifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="userType">
+          <Key>
+            <PropertyRef Name="userType_Id" />
+          </Key>
+          <Property Name="userType_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userType_Name" Type="varchar(max)" />
+          <Property Name="createdBy" Type="varchar(max)" />
+          <Property Name="createdDate" Type="datetime" />
+          <Property Name="modifiedBy" Type="varchar(max)" />
+          <Property Name="modifiedDate" Type="datetime" />
+        </EntityType>
+        <Association Name="FK__candidate__skill__29572725">
+          <End Role="skillMaster" Type="Self.skillMaster" Multiplicity="0..1" />
+          <End Role="candidateSkillMapping" Type="Self.candidateSkillMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="skillMaster">
+              <PropertyRef Name="skillId" />
+            </Principal>
+            <Dependent Role="candidateSkillMapping">
+              <PropertyRef Name="skillId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__clientVen__userM__2A4B4B5E">
+          <End Role="userMaster" Type="Self.userMaster" Multiplicity="0..1" />
+          <End Role="clientVendorMaster" Type="Self.clientVendorMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="userMaster">
+              <PropertyRef Name="userMaster_Id" />
+            </Principal>
+            <Dependent Role="clientVendorMaster">
+              <PropertyRef Name="userMaster_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__locationM__cityI__2C3393D0">
+          <End Role="cityMaster" Type="Self.cityMaster" Multiplicity="0..1" />
+          <End Role="locationMaster" Type="Self.locationMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cityMaster">
+              <PropertyRef Name="cityId" />
+            </Principal>
+            <Dependent Role="locationMaster">
+              <PropertyRef Name="cityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__locationM__count__2D27B809">
+          <End Role="countryMaster" Type="Self.countryMaster" Multiplicity="0..1" />
+          <End Role="locationMaster" Type="Self.locationMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="countryMaster">
+              <PropertyRef Name="countryId" />
+            </Principal>
+            <Dependent Role="locationMaster">
+              <PropertyRef Name="countryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__locationM__requi__2E1BDC42">
+          <End Role="requirmentMaster" Type="Self.requirmentMaster" Multiplicity="0..1" />
+          <End Role="locationMaster" Type="Self.locationMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="requirmentMaster">
+              <PropertyRef Name="requirment_Id" />
+            </Principal>
+            <Dependent Role="locationMaster">
+              <PropertyRef Name="requirment_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__locationM__state__2F10007B">
+          <End Role="stateMaster" Type="Self.stateMaster" Multiplicity="0..1" />
+          <End Role="locationMaster" Type="Self.locationMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="stateMaster">
+              <PropertyRef Name="stateId" />
+            </Principal>
+            <Dependent Role="locationMaster">
+              <PropertyRef Name="stateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__requireme__candi__30F848ED">
+          <End Role="candidateMaster" Type="Self.candidateMaster" Multiplicity="0..1" />
+          <End Role="requirementVendorMapping" Type="Self.requirementVendorMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="candidateMaster">
+              <PropertyRef Name="candidateId" />
+            </Principal>
+            <Dependent Role="requirementVendorMapping">
+              <PropertyRef Name="candidateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__requireme__clien__31EC6D26">
+          <End Role="clientVendorMaster" Type="Self.clientVendorMaster" Multiplicity="0..1" />
+          <End Role="requirementVendorMapping" Type="Self.requirementVendorMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clientVendorMaster">
+              <PropertyRef Name="clientVendorMaster_Id" />
+            </Principal>
+            <Dependent Role="requirementVendorMapping">
+              <PropertyRef Name="clientVendorMaster_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__requireme__requi__32E0915F">
+          <End Role="requirmentMaster" Type="Self.requirmentMaster" Multiplicity="0..1" />
+          <End Role="requirementVendorMapping" Type="Self.requirementVendorMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="requirmentMaster">
+              <PropertyRef Name="requirment_Id" />
+            </Principal>
+            <Dependent Role="requirementVendorMapping">
+              <PropertyRef Name="requirment_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__requireme__skill__300424B4">
+          <End Role="skillMaster" Type="Self.skillMaster" Multiplicity="0..1" />
+          <End Role="requirementSkillMapping" Type="Self.requirementSkillMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="skillMaster">
+              <PropertyRef Name="skillId" />
+            </Principal>
+            <Dependent Role="requirementSkillMapping">
+              <PropertyRef Name="skillId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__requirmen__clien__33D4B598">
+          <End Role="clientVendorMaster" Type="Self.clientVendorMaster" Multiplicity="0..1" />
+          <End Role="requirmentMaster" Type="Self.requirmentMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clientVendorMaster">
+              <PropertyRef Name="clientVendorMaster_Id" />
+            </Principal>
+            <Dependent Role="requirmentMaster">
+              <PropertyRef Name="clientVendorMaster_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__requirmen__clien__34C8D9D1">
+          <End Role="clientVendorMaster" Type="Self.clientVendorMaster" Multiplicity="0..1" />
+          <End Role="requirmentVendorMapping" Type="Self.requirmentVendorMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clientVendorMaster">
+              <PropertyRef Name="clientVendorMaster_Id" />
+            </Principal>
+            <Dependent Role="requirmentVendorMapping">
+              <PropertyRef Name="clientVendorMaster_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__stateMast__count__35BCFE0A">
+          <End Role="countryMaster" Type="Self.countryMaster" Multiplicity="0..1" />
+          <End Role="stateMaster" Type="Self.stateMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="countryMaster">
+              <PropertyRef Name="countryId" />
+            </Principal>
+            <Dependent Role="stateMaster">
+              <PropertyRef Name="countryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__userMaste__userT__36B12243">
+          <End Role="userType" Type="Self.userType" Multiplicity="0..1" />
+          <End Role="userMaster" Type="Self.userMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="userType">
+              <PropertyRef Name="userType_Id" />
+            </Principal>
+            <Dependent Role="userMaster">
+              <PropertyRef Name="userType_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_clientMaster_companyMaster">
+          <End Role="companyMaster" Type="Self.companyMaster" Multiplicity="1" />
+          <End Role="clientMaster" Type="Self.clientMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="companyMaster">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="clientMaster">
+              <PropertyRef Name="companyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CandidateTrackerModelStoreContainer">
+          <EntitySet Name="candidateMaster" EntityType="Self.candidateMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="candidateSkillMapping" EntityType="Self.candidateSkillMapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cityMaster" EntityType="Self.cityMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="clientMaster" EntityType="Self.clientMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="clientVendorMaster" EntityType="Self.clientVendorMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="companyMaster" EntityType="Self.companyMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="countryMaster" EntityType="Self.countryMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="locationMaster" EntityType="Self.locationMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="requirementSkillMapping" EntityType="Self.requirementSkillMapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="requirementVendorMapping" EntityType="Self.requirementVendorMapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="requirmentMaster" EntityType="Self.requirmentMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="requirmentVendorMapping" EntityType="Self.requirmentVendorMapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="skillMaster" EntityType="Self.skillMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="stateMaster" EntityType="Self.stateMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="userMaster" EntityType="Self.userMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="userType" EntityType="Self.userType" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__candidate__skill__29572725" Association="Self.FK__candidate__skill__29572725">
+            <End Role="skillMaster" EntitySet="skillMaster" />
+            <End Role="candidateSkillMapping" EntitySet="candidateSkillMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK__clientVen__userM__2A4B4B5E" Association="Self.FK__clientVen__userM__2A4B4B5E">
+            <End Role="userMaster" EntitySet="userMaster" />
+            <End Role="clientVendorMaster" EntitySet="clientVendorMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK__locationM__cityI__2C3393D0" Association="Self.FK__locationM__cityI__2C3393D0">
+            <End Role="cityMaster" EntitySet="cityMaster" />
+            <End Role="locationMaster" EntitySet="locationMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK__locationM__count__2D27B809" Association="Self.FK__locationM__count__2D27B809">
+            <End Role="countryMaster" EntitySet="countryMaster" />
+            <End Role="locationMaster" EntitySet="locationMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK__locationM__requi__2E1BDC42" Association="Self.FK__locationM__requi__2E1BDC42">
+            <End Role="requirmentMaster" EntitySet="requirmentMaster" />
+            <End Role="locationMaster" EntitySet="locationMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK__locationM__state__2F10007B" Association="Self.FK__locationM__state__2F10007B">
+            <End Role="stateMaster" EntitySet="stateMaster" />
+            <End Role="locationMaster" EntitySet="locationMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK__requireme__candi__30F848ED" Association="Self.FK__requireme__candi__30F848ED">
+            <End Role="candidateMaster" EntitySet="candidateMaster" />
+            <End Role="requirementVendorMapping" EntitySet="requirementVendorMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK__requireme__clien__31EC6D26" Association="Self.FK__requireme__clien__31EC6D26">
+            <End Role="clientVendorMaster" EntitySet="clientVendorMaster" />
+            <End Role="requirementVendorMapping" EntitySet="requirementVendorMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK__requireme__requi__32E0915F" Association="Self.FK__requireme__requi__32E0915F">
+            <End Role="requirmentMaster" EntitySet="requirmentMaster" />
+            <End Role="requirementVendorMapping" EntitySet="requirementVendorMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK__requireme__skill__300424B4" Association="Self.FK__requireme__skill__300424B4">
+            <End Role="skillMaster" EntitySet="skillMaster" />
+            <End Role="requirementSkillMapping" EntitySet="requirementSkillMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK__requirmen__clien__33D4B598" Association="Self.FK__requirmen__clien__33D4B598">
+            <End Role="clientVendorMaster" EntitySet="clientVendorMaster" />
+            <End Role="requirmentMaster" EntitySet="requirmentMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK__requirmen__clien__34C8D9D1" Association="Self.FK__requirmen__clien__34C8D9D1">
+            <End Role="clientVendorMaster" EntitySet="clientVendorMaster" />
+            <End Role="requirmentVendorMapping" EntitySet="requirmentVendorMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK__stateMast__count__35BCFE0A" Association="Self.FK__stateMast__count__35BCFE0A">
+            <End Role="countryMaster" EntitySet="countryMaster" />
+            <End Role="stateMaster" EntitySet="stateMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK__userMaste__userT__36B12243" Association="Self.FK__userMaste__userT__36B12243">
+            <End Role="userType" EntitySet="userType" />
+            <End Role="userMaster" EntitySet="userMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_clientMaster_companyMaster" Association="Self.FK_clientMaster_companyMaster">
+            <End Role="companyMaster" EntitySet="companyMaster" />
+            <End Role="clientMaster" EntitySet="clientMaster" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CandidateTrackerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="candidateMaster">
+          <Key>
+            <PropertyRef Name="candidateId" />
+          </Key>
+          <Property Name="candidateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="candidateName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="jobProfileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="experienceStartDate" Type="DateTime" Precision="3" />
+          <Property Name="experienceEndDate" Type="DateTime" Precision="3" />
+          <Property Name="mobileNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="currentExperience" Type="Int32" />
+          <Property Name="attachedCv" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="createdBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="createdDate" Type="DateTime" Precision="3" />
+          <Property Name="modifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="modifiedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="requirementVendorMappings" Relationship="Self.FK__requireme__candi__30F848ED" FromRole="candidateMaster" ToRole="requirementVendorMapping" />
+        </EntityType>
+        <EntityType Name="candidateSkillMapping">
+          <Key>
+            <PropertyRef Name="candidateSkillId" />
+          </Key>
+          <Property Name="candidateSkillId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="skillId" Type="Int32" />
+          <Property Name="cvPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="createdBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="createdDate" Type="DateTime" Precision="3" />
+          <Property Name="modifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="modifiedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="skillMaster" Relationship="Self.FK__candidate__skill__29572725" FromRole="candidateSkillMapping" ToRole="skillMaster" />
+        </EntityType>
+        <EntityType Name="cityMaster">
+          <Key>
+            <PropertyRef Name="cityId" />
+          </Key>
+          <Property Name="cityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cityName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="createdBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="createdDate" Type="DateTime" Precision="3" />
+          <Property Name="modifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="modifiedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="locationMasters" Relationship="Self.FK__locationM__cityI__2C3393D0" FromRole="cityMaster" ToRole="locationMaster" />
+        </EntityType>
+        <EntityType Name="clientVendorMaster">
+          <Key>
+            <PropertyRef Name="clientVendorMaster_Id" />
+          </Key>
+          <Property Name="clientVendorMaster_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userMaster_Id" Type="Int32" />
+          <Property Name="createdBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="createdDate" Type="DateTime" Precision="3" />
+          <Property Name="modifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="modifiedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="userMaster" Relationship="Self.FK__clientVen__userM__2A4B4B5E" FromRole="clientVendorMaster" ToRole="userMaster" />
+          <NavigationProperty Name="requirementVendorMappings" Relationship="Self.FK__requireme__clien__31EC6D26" FromRole="clientVendorMaster" ToRole="requirementVendorMapping" />
+          <NavigationProperty Name="requirmentMasters" Relationship="Self.FK__requirmen__clien__33D4B598" FromRole="clientVendorMaster" ToRole="requirmentMaster" />
+          <NavigationProperty Name="requirmentVendorMappings" Relationship="Self.FK__requirmen__clien__34C8D9D1" FromRole="clientVendorMaster" ToRole="requirmentVendorMapping" />
+        </EntityType>
+        <EntityType Name="countryMaster">
+          <Key>
+            <PropertyRef Name="countryId" />
+          </Key>
+          <Property Name="countryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="countryName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="createdBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="createdDate" Type="DateTime" Precision="3" />
+          <Property Name="modifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="modifiedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="locationMasters" Relationship="Self.FK__locationM__count__2D27B809" FromRole="countryMaster" ToRole="locationMaster" />
+          <NavigationProperty Name="stateMasters" Relationship="Self.FK__stateMast__count__35BCFE0A" FromRole="countryMaster" ToRole="stateMaster" />
+        </EntityType>
+        <EntityType Name="locationMaster">
+          <Key>
+            <PropertyRef Name="locationMaster_Id" />
+          </Key>
+          <Property Name="locationMaster_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="requirment_Id" Type="Int32" />
+          <Property Name="cityId" Type="Int32" />
+          <Property Name="countryId" Type="Int32" />
+          <Property Name="stateId" Type="Int32" />
+          <Property Name="createdBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="createdDate" Type="DateTime" Precision="3" />
+          <Property Name="modifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="modifiedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="cityMaster" Relationship="Self.FK__locationM__cityI__2C3393D0" FromRole="locationMaster" ToRole="cityMaster" />
+          <NavigationProperty Name="countryMaster" Relationship="Self.FK__locationM__count__2D27B809" FromRole="locationMaster" ToRole="countryMaster" />
+          <NavigationProperty Name="requirmentMaster" Relationship="Self.FK__locationM__requi__2E1BDC42" FromRole="locationMaster" ToRole="requirmentMaster" />
+          <NavigationProperty Name="stateMaster" Relationship="Self.FK__locationM__state__2F10007B" FromRole="locationMaster" ToRole="stateMaster" />
+        </EntityType>
+        <EntityType Name="requirementSkillMapping">
+          <Key>
+            <PropertyRef Name="requirementSkillId" />
+          </Key>
+          <Property Name="requirementSkillId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="skillId" Type="Int32" />
+          <Property Name="createdBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="createdDate" Type="DateTime" Precision="3" />
+          <Property Name="modifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="modifiedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="skillMaster" Relationship="Self.FK__requireme__skill__300424B4" FromRole="requirementSkillMapping" ToRole="skillMaster" />
+        </EntityType>
+        <EntityType Name="requirementVendorMapping">
+          <Key>
+            <PropertyRef Name="requirmentVendorMapping_Id" />
+          </Key>
+          <Property Name="requirmentVendorMapping_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="clientVendorMaster_Id" Type="Int32" />
+          <Property Name="requirment_Id" Type="Int32" />
+          <Property Name="candidateId" Type="Int32" />
+          <Property Name="createdBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="createdDate" Type="DateTime" Precision="3" />
+          <Property Name="modifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="modifiedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="candidateMaster" Relationship="Self.FK__requireme__candi__30F848ED" FromRole="requirementVendorMapping" ToRole="candidateMaster" />
+          <NavigationProperty Name="clientVendorMaster" Relationship="Self.FK__requireme__clien__31EC6D26" FromRole="requirementVendorMapping" ToRole="clientVendorMaster" />
+          <NavigationProperty Name="requirmentMaster" Relationship="Self.FK__requireme__requi__32E0915F" FromRole="requirementVendorMapping" ToRole="requirmentMaster" />
+        </EntityType>
+        <EntityType Name="requirmentMaster">
+          <Key>
+            <PropertyRef Name="requirment_Id" />
+          </Key>
+          <Property Name="requirment_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="clientVendorMaster_Id" Type="Int32" />
+          <Property Name="jobProfileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="experienceStartDate" Type="DateTime" Precision="3" />
+          <Property Name="experienceEndDate" Type="DateTime" Precision="3" />
+          <Property Name="salaryStartRange" Type="Int32" />
+          <Property Name="salaryEndRange" Type="Int32" />
+          <Property Name="createdBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="createdDate" Type="DateTime" Precision="3" />
+          <Property Name="modifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="modifiedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="clientVendorMaster" Relationship="Self.FK__requirmen__clien__33D4B598" FromRole="requirmentMaster" ToRole="clientVendorMaster" />
+          <NavigationProperty Name="locationMasters" Relationship="Self.FK__locationM__requi__2E1BDC42" FromRole="requirmentMaster" ToRole="locationMaster" />
+          <NavigationProperty Name="requirementVendorMappings" Relationship="Self.FK__requireme__requi__32E0915F" FromRole="requirmentMaster" ToRole="requirementVendorMapping" />
+        </EntityType>
+        <EntityType Name="requirmentVendorMapping">
+          <Key>
+            <PropertyRef Name="requirmentVendorMapping_Id" />
+          </Key>
+          <Property Name="requirmentVendorMapping_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="clientVendorMaster_Id" Type="Int32" />
+          <Property Name="createdBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="createdDate" Type="DateTime" Precision="3" />
+          <Property Name="modifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="modifiedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="clientVendorMaster" Relationship="Self.FK__requirmen__clien__34C8D9D1" FromRole="requirmentVendorMapping" ToRole="clientVendorMaster" />
+        </EntityType>
+        <EntityType Name="skillMaster">
+          <Key>
+            <PropertyRef Name="skillId" />
+          </Key>
+          <Property Name="skillId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="skillName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="createdBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="createdDate" Type="DateTime" Precision="3" />
+          <Property Name="modifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="modifiedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="candidateSkillMappings" Relationship="Self.FK__candidate__skill__29572725" FromRole="skillMaster" ToRole="candidateSkillMapping" />
+          <NavigationProperty Name="requirementSkillMappings" Relationship="Self.FK__requireme__skill__300424B4" FromRole="skillMaster" ToRole="requirementSkillMapping" />
+        </EntityType>
+        <EntityType Name="stateMaster">
+          <Key>
+            <PropertyRef Name="stateId" />
+          </Key>
+          <Property Name="stateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="countryId" Type="Int32" />
+          <Property Name="stateName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="createdBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="createdDate" Type="DateTime" Precision="3" />
+          <Property Name="modifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="modifiedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="countryMaster" Relationship="Self.FK__stateMast__count__35BCFE0A" FromRole="stateMaster" ToRole="countryMaster" />
+          <NavigationProperty Name="locationMasters" Relationship="Self.FK__locationM__state__2F10007B" FromRole="stateMaster" ToRole="locationMaster" />
+        </EntityType>
+        <EntityType Name="userMaster">
+          <Key>
+            <PropertyRef Name="userMaster_Id" />
+          </Key>
+          <Property Name="userMaster_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userType_Id" Type="Int32" />
+          <Property Name="userName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="userAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="contactNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="emailId" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="createdBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="createdDate" Type="DateTime" Precision="3" />
+          <Property Name="modifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="modifiedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="clientVendorMasters" Relationship="Self.FK__clientVen__userM__2A4B4B5E" FromRole="userMaster" ToRole="clientVendorMaster" />
+          <NavigationProperty Name="userType" Relationship="Self.FK__userMaste__userT__36B12243" FromRole="userMaster" ToRole="userType" />
+        </EntityType>
+        <EntityType Name="userType">
+          <Key>
+            <PropertyRef Name="userType_Id" />
+          </Key>
+          <Property Name="userType_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userType_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="createdBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="createdDate" Type="DateTime" Precision="3" />
+          <Property Name="modifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="modifiedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="userMasters" Relationship="Self.FK__userMaste__userT__36B12243" FromRole="userType" ToRole="userMaster" />
+        </EntityType>
+        <Association Name="FK__requireme__candi__30F848ED">
+          <End Role="candidateMaster" Type="Self.candidateMaster" Multiplicity="0..1" />
+          <End Role="requirementVendorMapping" Type="Self.requirementVendorMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="candidateMaster">
+              <PropertyRef Name="candidateId" />
+            </Principal>
+            <Dependent Role="requirementVendorMapping">
+              <PropertyRef Name="candidateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__candidate__skill__29572725">
+          <End Role="skillMaster" Type="Self.skillMaster" Multiplicity="0..1" />
+          <End Role="candidateSkillMapping" Type="Self.candidateSkillMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="skillMaster">
+              <PropertyRef Name="skillId" />
+            </Principal>
+            <Dependent Role="candidateSkillMapping">
+              <PropertyRef Name="skillId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__locationM__cityI__2C3393D0">
+          <End Role="cityMaster" Type="Self.cityMaster" Multiplicity="0..1" />
+          <End Role="locationMaster" Type="Self.locationMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cityMaster">
+              <PropertyRef Name="cityId" />
+            </Principal>
+            <Dependent Role="locationMaster">
+              <PropertyRef Name="cityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__clientVen__userM__2A4B4B5E">
+          <End Role="userMaster" Type="Self.userMaster" Multiplicity="0..1" />
+          <End Role="clientVendorMaster" Type="Self.clientVendorMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="userMaster">
+              <PropertyRef Name="userMaster_Id" />
+            </Principal>
+            <Dependent Role="clientVendorMaster">
+              <PropertyRef Name="userMaster_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__requireme__clien__31EC6D26">
+          <End Role="clientVendorMaster" Type="Self.clientVendorMaster" Multiplicity="0..1" />
+          <End Role="requirementVendorMapping" Type="Self.requirementVendorMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clientVendorMaster">
+              <PropertyRef Name="clientVendorMaster_Id" />
+            </Principal>
+            <Dependent Role="requirementVendorMapping">
+              <PropertyRef Name="clientVendorMaster_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__requirmen__clien__33D4B598">
+          <End Role="clientVendorMaster" Type="Self.clientVendorMaster" Multiplicity="0..1" />
+          <End Role="requirmentMaster" Type="Self.requirmentMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clientVendorMaster">
+              <PropertyRef Name="clientVendorMaster_Id" />
+            </Principal>
+            <Dependent Role="requirmentMaster">
+              <PropertyRef Name="clientVendorMaster_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__requirmen__clien__34C8D9D1">
+          <End Role="clientVendorMaster" Type="Self.clientVendorMaster" Multiplicity="0..1" />
+          <End Role="requirmentVendorMapping" Type="Self.requirmentVendorMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clientVendorMaster">
+              <PropertyRef Name="clientVendorMaster_Id" />
+            </Principal>
+            <Dependent Role="requirmentVendorMapping">
+              <PropertyRef Name="clientVendorMaster_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__locationM__count__2D27B809">
+          <End Role="countryMaster" Type="Self.countryMaster" Multiplicity="0..1" />
+          <End Role="locationMaster" Type="Self.locationMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="countryMaster">
+              <PropertyRef Name="countryId" />
+            </Principal>
+            <Dependent Role="locationMaster">
+              <PropertyRef Name="countryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__stateMast__count__35BCFE0A">
+          <End Role="countryMaster" Type="Self.countryMaster" Multiplicity="0..1" />
+          <End Role="stateMaster" Type="Self.stateMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="countryMaster">
+              <PropertyRef Name="countryId" />
+            </Principal>
+            <Dependent Role="stateMaster">
+              <PropertyRef Name="countryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__locationM__requi__2E1BDC42">
+          <End Role="requirmentMaster" Type="Self.requirmentMaster" Multiplicity="0..1" />
+          <End Role="locationMaster" Type="Self.locationMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="requirmentMaster">
+              <PropertyRef Name="requirment_Id" />
+            </Principal>
+            <Dependent Role="locationMaster">
+              <PropertyRef Name="requirment_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__locationM__state__2F10007B">
+          <End Role="stateMaster" Type="Self.stateMaster" Multiplicity="0..1" />
+          <End Role="locationMaster" Type="Self.locationMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="stateMaster">
+              <PropertyRef Name="stateId" />
+            </Principal>
+            <Dependent Role="locationMaster">
+              <PropertyRef Name="stateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__requireme__skill__300424B4">
+          <End Role="skillMaster" Type="Self.skillMaster" Multiplicity="0..1" />
+          <End Role="requirementSkillMapping" Type="Self.requirementSkillMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="skillMaster">
+              <PropertyRef Name="skillId" />
+            </Principal>
+            <Dependent Role="requirementSkillMapping">
+              <PropertyRef Name="skillId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__requireme__requi__32E0915F">
+          <End Role="requirmentMaster" Type="Self.requirmentMaster" Multiplicity="0..1" />
+          <End Role="requirementVendorMapping" Type="Self.requirementVendorMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="requirmentMaster">
+              <PropertyRef Name="requirment_Id" />
+            </Principal>
+            <Dependent Role="requirementVendorMapping">
+              <PropertyRef Name="requirment_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__userMaste__userT__36B12243">
+          <End Role="userType" Type="Self.userType" Multiplicity="0..1" />
+          <End Role="userMaster" Type="Self.userMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="userType">
+              <PropertyRef Name="userType_Id" />
+            </Principal>
+            <Dependent Role="userMaster">
+              <PropertyRef Name="userType_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CandidateTrackerEntitiesModel" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="candidateMasters" EntityType="Self.candidateMaster" />
+          <EntitySet Name="candidateSkillMappings" EntityType="Self.candidateSkillMapping" />
+          <EntitySet Name="cityMasters" EntityType="Self.cityMaster" />
+          <EntitySet Name="clientVendorMasters" EntityType="Self.clientVendorMaster" />
+          <EntitySet Name="countryMasters" EntityType="Self.countryMaster" />
+          <EntitySet Name="locationMasters" EntityType="Self.locationMaster" />
+          <EntitySet Name="requirementSkillMappings" EntityType="Self.requirementSkillMapping" />
+          <EntitySet Name="requirementVendorMappings" EntityType="Self.requirementVendorMapping" />
+          <EntitySet Name="requirmentMasters" EntityType="Self.requirmentMaster" />
+          <EntitySet Name="requirmentVendorMappings" EntityType="Self.requirmentVendorMapping" />
+          <EntitySet Name="skillMasters" EntityType="Self.skillMaster" />
+          <EntitySet Name="stateMasters" EntityType="Self.stateMaster" />
+          <EntitySet Name="userMasters" EntityType="Self.userMaster" />
+          <EntitySet Name="userTypes" EntityType="Self.userType" />
+          <AssociationSet Name="FK__requireme__candi__30F848ED" Association="Self.FK__requireme__candi__30F848ED">
+            <End Role="candidateMaster" EntitySet="candidateMasters" />
+            <End Role="requirementVendorMapping" EntitySet="requirementVendorMappings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__candidate__skill__29572725" Association="Self.FK__candidate__skill__29572725">
+            <End Role="skillMaster" EntitySet="skillMasters" />
+            <End Role="candidateSkillMapping" EntitySet="candidateSkillMappings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__locationM__cityI__2C3393D0" Association="Self.FK__locationM__cityI__2C3393D0">
+            <End Role="cityMaster" EntitySet="cityMasters" />
+            <End Role="locationMaster" EntitySet="locationMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK__clientVen__userM__2A4B4B5E" Association="Self.FK__clientVen__userM__2A4B4B5E">
+            <End Role="userMaster" EntitySet="userMasters" />
+            <End Role="clientVendorMaster" EntitySet="clientVendorMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK__requireme__clien__31EC6D26" Association="Self.FK__requireme__clien__31EC6D26">
+            <End Role="clientVendorMaster" EntitySet="clientVendorMasters" />
+            <End Role="requirementVendorMapping" EntitySet="requirementVendorMappings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__requirmen__clien__33D4B598" Association="Self.FK__requirmen__clien__33D4B598">
+            <End Role="clientVendorMaster" EntitySet="clientVendorMasters" />
+            <End Role="requirmentMaster" EntitySet="requirmentMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK__requirmen__clien__34C8D9D1" Association="Self.FK__requirmen__clien__34C8D9D1">
+            <End Role="clientVendorMaster" EntitySet="clientVendorMasters" />
+            <End Role="requirmentVendorMapping" EntitySet="requirmentVendorMappings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__locationM__count__2D27B809" Association="Self.FK__locationM__count__2D27B809">
+            <End Role="countryMaster" EntitySet="countryMasters" />
+            <End Role="locationMaster" EntitySet="locationMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK__stateMast__count__35BCFE0A" Association="Self.FK__stateMast__count__35BCFE0A">
+            <End Role="countryMaster" EntitySet="countryMasters" />
+            <End Role="stateMaster" EntitySet="stateMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK__locationM__requi__2E1BDC42" Association="Self.FK__locationM__requi__2E1BDC42">
+            <End Role="requirmentMaster" EntitySet="requirmentMasters" />
+            <End Role="locationMaster" EntitySet="locationMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK__locationM__state__2F10007B" Association="Self.FK__locationM__state__2F10007B">
+            <End Role="stateMaster" EntitySet="stateMasters" />
+            <End Role="locationMaster" EntitySet="locationMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK__requireme__skill__300424B4" Association="Self.FK__requireme__skill__300424B4">
+            <End Role="skillMaster" EntitySet="skillMasters" />
+            <End Role="requirementSkillMapping" EntitySet="requirementSkillMappings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__requireme__requi__32E0915F" Association="Self.FK__requireme__requi__32E0915F">
+            <End Role="requirmentMaster" EntitySet="requirmentMasters" />
+            <End Role="requirementVendorMapping" EntitySet="requirementVendorMappings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__userMaste__userT__36B12243" Association="Self.FK__userMaste__userT__36B12243">
+            <End Role="userType" EntitySet="userTypes" />
+            <End Role="userMaster" EntitySet="userMasters" />
+          </AssociationSet>
+          <EntitySet Name="clientMasters" EntityType="CandidateTrackerModel.clientMaster" />
+          <EntitySet Name="companyMasters" EntityType="CandidateTrackerModel.companyMaster" />
+          <AssociationSet Name="FK_clientMaster_companyMaster" Association="CandidateTrackerModel.FK_clientMaster_companyMaster">
+            <End Role="companyMaster" EntitySet="companyMasters" />
+            <End Role="clientMaster" EntitySet="clientMasters" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="clientMaster">
+          <Key>
+            <PropertyRef Name="clientMasterId" />
+          </Key>
+          <Property Name="clientMasterId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="companyId" Type="Int32" Nullable="false" />
+          <Property Name="contactPersonName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="emailId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="phoneNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="companyAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="companyMaster" Relationship="CandidateTrackerModel.FK_clientMaster_companyMaster" FromRole="clientMaster" ToRole="companyMaster" />
+        </EntityType>
+        <EntityType Name="companyMaster">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="clientMasters" Relationship="CandidateTrackerModel.FK_clientMaster_companyMaster" FromRole="companyMaster" ToRole="clientMaster" />
+        </EntityType>
+        <Association Name="FK_clientMaster_companyMaster">
+          <End Type="CandidateTrackerModel.companyMaster" Role="companyMaster" Multiplicity="1" />
+          <End Type="CandidateTrackerModel.clientMaster" Role="clientMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="companyMaster">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="clientMaster">
+              <PropertyRef Name="companyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CandidateTrackerModelStoreContainer" CdmEntityContainer="CandidateTrackerEntitiesModel">
+          <EntitySetMapping Name="candidateMasters">
+            <EntityTypeMapping TypeName="CandidateTrackerModel.candidateMaster">
+              <MappingFragment StoreEntitySet="candidateMaster">
+                <ScalarProperty Name="candidateId" ColumnName="candidateId" />
+                <ScalarProperty Name="candidateName" ColumnName="candidateName" />
+                <ScalarProperty Name="jobProfileName" ColumnName="jobProfileName" />
+                <ScalarProperty Name="experienceStartDate" ColumnName="experienceStartDate" />
+                <ScalarProperty Name="experienceEndDate" ColumnName="experienceEndDate" />
+                <ScalarProperty Name="mobileNumber" ColumnName="mobileNumber" />
+                <ScalarProperty Name="currentExperience" ColumnName="currentExperience" />
+                <ScalarProperty Name="attachedCv" ColumnName="attachedCv" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+                <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="candidateSkillMappings">
+            <EntityTypeMapping TypeName="CandidateTrackerModel.candidateSkillMapping">
+              <MappingFragment StoreEntitySet="candidateSkillMapping">
+                <ScalarProperty Name="candidateSkillId" ColumnName="candidateSkillId" />
+                <ScalarProperty Name="skillId" ColumnName="skillId" />
+                <ScalarProperty Name="cvPath" ColumnName="cvPath" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+                <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cityMasters">
+            <EntityTypeMapping TypeName="CandidateTrackerModel.cityMaster">
+              <MappingFragment StoreEntitySet="cityMaster">
+                <ScalarProperty Name="cityId" ColumnName="cityId" />
+                <ScalarProperty Name="cityName" ColumnName="cityName" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+                <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="clientVendorMasters">
+            <EntityTypeMapping TypeName="CandidateTrackerModel.clientVendorMaster">
+              <MappingFragment StoreEntitySet="clientVendorMaster">
+                <ScalarProperty Name="clientVendorMaster_Id" ColumnName="clientVendorMaster_Id" />
+                <ScalarProperty Name="userMaster_Id" ColumnName="userMaster_Id" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+                <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="countryMasters">
+            <EntityTypeMapping TypeName="CandidateTrackerModel.countryMaster">
+              <MappingFragment StoreEntitySet="countryMaster">
+                <ScalarProperty Name="countryId" ColumnName="countryId" />
+                <ScalarProperty Name="countryName" ColumnName="countryName" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+                <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="locationMasters">
+            <EntityTypeMapping TypeName="CandidateTrackerModel.locationMaster">
+              <MappingFragment StoreEntitySet="locationMaster">
+                <ScalarProperty Name="locationMaster_Id" ColumnName="locationMaster_Id" />
+                <ScalarProperty Name="requirment_Id" ColumnName="requirment_Id" />
+                <ScalarProperty Name="cityId" ColumnName="cityId" />
+                <ScalarProperty Name="countryId" ColumnName="countryId" />
+                <ScalarProperty Name="stateId" ColumnName="stateId" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+                <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="requirementSkillMappings">
+            <EntityTypeMapping TypeName="CandidateTrackerModel.requirementSkillMapping">
+              <MappingFragment StoreEntitySet="requirementSkillMapping">
+                <ScalarProperty Name="requirementSkillId" ColumnName="requirementSkillId" />
+                <ScalarProperty Name="skillId" ColumnName="skillId" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+                <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="requirementVendorMappings">
+            <EntityTypeMapping TypeName="CandidateTrackerModel.requirementVendorMapping">
+              <MappingFragment StoreEntitySet="requirementVendorMapping">
+                <ScalarProperty Name="requirmentVendorMapping_Id" ColumnName="requirmentVendorMapping_Id" />
+                <ScalarProperty Name="clientVendorMaster_Id" ColumnName="clientVendorMaster_Id" />
+                <ScalarProperty Name="requirment_Id" ColumnName="requirment_Id" />
+                <ScalarProperty Name="candidateId" ColumnName="candidateId" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+                <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="requirmentMasters">
+            <EntityTypeMapping TypeName="CandidateTrackerModel.requirmentMaster">
+              <MappingFragment StoreEntitySet="requirmentMaster">
+                <ScalarProperty Name="requirment_Id" ColumnName="requirment_Id" />
+                <ScalarProperty Name="clientVendorMaster_Id" ColumnName="clientVendorMaster_Id" />
+                <ScalarProperty Name="jobProfileName" ColumnName="jobProfileName" />
+                <ScalarProperty Name="experienceStartDate" ColumnName="experienceStartDate" />
+                <ScalarProperty Name="experienceEndDate" ColumnName="experienceEndDate" />
+                <ScalarProperty Name="salaryStartRange" ColumnName="salaryStartRange" />
+                <ScalarProperty Name="salaryEndRange" ColumnName="salaryEndRange" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+                <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="requirmentVendorMappings">
+            <EntityTypeMapping TypeName="CandidateTrackerModel.requirmentVendorMapping">
+              <MappingFragment StoreEntitySet="requirmentVendorMapping">
+                <ScalarProperty Name="requirmentVendorMapping_Id" ColumnName="requirmentVendorMapping_Id" />
+                <ScalarProperty Name="clientVendorMaster_Id" ColumnName="clientVendorMaster_Id" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+                <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="skillMasters">
+            <EntityTypeMapping TypeName="CandidateTrackerModel.skillMaster">
+              <MappingFragment StoreEntitySet="skillMaster">
+                <ScalarProperty Name="skillId" ColumnName="skillId" />
+                <ScalarProperty Name="skillName" ColumnName="skillName" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+                <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="stateMasters">
+            <EntityTypeMapping TypeName="CandidateTrackerModel.stateMaster">
+              <MappingFragment StoreEntitySet="stateMaster">
+                <ScalarProperty Name="stateId" ColumnName="stateId" />
+                <ScalarProperty Name="countryId" ColumnName="countryId" />
+                <ScalarProperty Name="stateName" ColumnName="stateName" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+                <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userMasters">
+            <EntityTypeMapping TypeName="CandidateTrackerModel.userMaster">
+              <MappingFragment StoreEntitySet="userMaster">
+                <ScalarProperty Name="userMaster_Id" ColumnName="userMaster_Id" />
+                <ScalarProperty Name="userType_Id" ColumnName="userType_Id" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="userAddress" ColumnName="userAddress" />
+                <ScalarProperty Name="contactNumber" ColumnName="contactNumber" />
+                <ScalarProperty Name="emailId" ColumnName="emailId" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+                <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userTypes">
+            <EntityTypeMapping TypeName="CandidateTrackerModel.userType">
+              <MappingFragment StoreEntitySet="userType">
+                <ScalarProperty Name="userType_Id" ColumnName="userType_Id" />
+                <ScalarProperty Name="userType_Name" ColumnName="userType_Name" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+                <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="clientMasters">
+            <EntityTypeMapping TypeName="CandidateTrackerModel.clientMaster">
+              <MappingFragment StoreEntitySet="clientMaster">
+                <ScalarProperty Name="companyAddress" ColumnName="companyAddress" />
+                <ScalarProperty Name="phoneNo" ColumnName="phoneNo" />
+                <ScalarProperty Name="emailId" ColumnName="emailId" />
+                <ScalarProperty Name="contactPersonName" ColumnName="contactPersonName" />
+                <ScalarProperty Name="companyId" ColumnName="companyId" />
+                <ScalarProperty Name="clientMasterId" ColumnName="clientMasterId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="companyMasters">
+            <EntityTypeMapping TypeName="CandidateTrackerModel.companyMaster">
+              <MappingFragment StoreEntitySet="companyMaster">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

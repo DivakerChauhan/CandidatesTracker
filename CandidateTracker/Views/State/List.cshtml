@@ -1,0 +1,46 @@
+﻿@model CandidateTracker.Models.StateDetailViewModel
+@{
+    var Action = HttpContext.Current.Request.RequestContext.RouteData.GetRequiredString("action");
+    Layout = null;
+}
+
+@if (Model.lstStateViewModel.Count == 0)
+{
+
+    <div class="form-group col-xs-12 col-sm-12 no-record">
+        <span>No record Found</span>
+    </div>
+
+}
+else
+{
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <td>S.No.</td>
+                    <td>State name</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+            <tbody>
+
+                @{
+    var counter = 1;
+    foreach (var item in Model.lstStateViewModel)
+    {
+        <tr>
+            <td>@(counter++)</td>
+            <td>@item.name </td>
+            <td>
+                @Html.ActionLink("Edit", "Index", new { id = item.id }, new { @class = "glyphicon glyphicon-edit" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "glyphicon glyphicon-trash" })
+            </td>
+        </tr>
+    }
+                }
+
+            </tbody>
+        </table>
+    </div>
+}

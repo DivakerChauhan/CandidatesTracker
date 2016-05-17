@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CandidateTrackerModelStoreContainer" CdmEntityContainer="CandidateTrackerEntitiesModel">
+    <EntitySetMapping Name="candidateMasters">
+      <EntityTypeMapping TypeName="CandidateTrackerModel.candidateMaster">
+        <MappingFragment StoreEntitySet="candidateMaster">
+          <ScalarProperty Name="candidateId" ColumnName="candidateId" />
+          <ScalarProperty Name="candidateName" ColumnName="candidateName" />
+          <ScalarProperty Name="jobProfileName" ColumnName="jobProfileName" />
+          <ScalarProperty Name="experienceStartDate" ColumnName="experienceStartDate" />
+          <ScalarProperty Name="experienceEndDate" ColumnName="experienceEndDate" />
+          <ScalarProperty Name="mobileNumber" ColumnName="mobileNumber" />
+          <ScalarProperty Name="currentExperience" ColumnName="currentExperience" />
+          <ScalarProperty Name="attachedCv" ColumnName="attachedCv" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="candidateSkillMappings">
+      <EntityTypeMapping TypeName="CandidateTrackerModel.candidateSkillMapping">
+        <MappingFragment StoreEntitySet="candidateSkillMapping">
+          <ScalarProperty Name="candidateSkillId" ColumnName="candidateSkillId" />
+          <ScalarProperty Name="skillId" ColumnName="skillId" />
+          <ScalarProperty Name="cvPath" ColumnName="cvPath" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cityMasters">
+      <EntityTypeMapping TypeName="CandidateTrackerModel.cityMaster">
+        <MappingFragment StoreEntitySet="cityMaster">
+          <ScalarProperty Name="cityId" ColumnName="cityId" />
+          <ScalarProperty Name="cityName" ColumnName="cityName" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="clientVendorMasters">
+      <EntityTypeMapping TypeName="CandidateTrackerModel.clientVendorMaster">
+        <MappingFragment StoreEntitySet="clientVendorMaster">
+          <ScalarProperty Name="clientVendorMaster_Id" ColumnName="clientVendorMaster_Id" />
+          <ScalarProperty Name="userMaster_Id" ColumnName="userMaster_Id" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="countryMasters">
+      <EntityTypeMapping TypeName="CandidateTrackerModel.countryMaster">
+        <MappingFragment StoreEntitySet="countryMaster">
+          <ScalarProperty Name="countryId" ColumnName="countryId" />
+          <ScalarProperty Name="countryName" ColumnName="countryName" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="locationMasters">
+      <EntityTypeMapping TypeName="CandidateTrackerModel.locationMaster">
+        <MappingFragment StoreEntitySet="locationMaster">
+          <ScalarProperty Name="locationMaster_Id" ColumnName="locationMaster_Id" />
+          <ScalarProperty Name="requirment_Id" ColumnName="requirment_Id" />
+          <ScalarProperty Name="cityId" ColumnName="cityId" />
+          <ScalarProperty Name="countryId" ColumnName="countryId" />
+          <ScalarProperty Name="stateId" ColumnName="stateId" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="requirementSkillMappings">
+      <EntityTypeMapping TypeName="CandidateTrackerModel.requirementSkillMapping">
+        <MappingFragment StoreEntitySet="requirementSkillMapping">
+          <ScalarProperty Name="requirementSkillId" ColumnName="requirementSkillId" />
+          <ScalarProperty Name="skillId" ColumnName="skillId" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="requirementVendorMappings">
+      <EntityTypeMapping TypeName="CandidateTrackerModel.requirementVendorMapping">
+        <MappingFragment StoreEntitySet="requirementVendorMapping">
+          <ScalarProperty Name="requirmentVendorMapping_Id" ColumnName="requirmentVendorMapping_Id" />
+          <ScalarProperty Name="clientVendorMaster_Id" ColumnName="clientVendorMaster_Id" />
+          <ScalarProperty Name="requirment_Id" ColumnName="requirment_Id" />
+          <ScalarProperty Name="candidateId" ColumnName="candidateId" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="requirmentMasters">
+      <EntityTypeMapping TypeName="CandidateTrackerModel.requirmentMaster">
+        <MappingFragment StoreEntitySet="requirmentMaster">
+          <ScalarProperty Name="requirment_Id" ColumnName="requirment_Id" />
+          <ScalarProperty Name="clientVendorMaster_Id" ColumnName="clientVendorMaster_Id" />
+          <ScalarProperty Name="jobProfileName" ColumnName="jobProfileName" />
+          <ScalarProperty Name="experienceStartDate" ColumnName="experienceStartDate" />
+          <ScalarProperty Name="experienceEndDate" ColumnName="experienceEndDate" />
+          <ScalarProperty Name="salaryStartRange" ColumnName="salaryStartRange" />
+          <ScalarProperty Name="salaryEndRange" ColumnName="salaryEndRange" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="requirmentVendorMappings">
+      <EntityTypeMapping TypeName="CandidateTrackerModel.requirmentVendorMapping">
+        <MappingFragment StoreEntitySet="requirmentVendorMapping">
+          <ScalarProperty Name="requirmentVendorMapping_Id" ColumnName="requirmentVendorMapping_Id" />
+          <ScalarProperty Name="clientVendorMaster_Id" ColumnName="clientVendorMaster_Id" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="skillMasters">
+      <EntityTypeMapping TypeName="CandidateTrackerModel.skillMaster">
+        <MappingFragment StoreEntitySet="skillMaster">
+          <ScalarProperty Name="skillId" ColumnName="skillId" />
+          <ScalarProperty Name="skillName" ColumnName="skillName" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="stateMasters">
+      <EntityTypeMapping TypeName="CandidateTrackerModel.stateMaster">
+        <MappingFragment StoreEntitySet="stateMaster">
+          <ScalarProperty Name="stateId" ColumnName="stateId" />
+          <ScalarProperty Name="countryId" ColumnName="countryId" />
+          <ScalarProperty Name="stateName" ColumnName="stateName" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userMasters">
+      <EntityTypeMapping TypeName="CandidateTrackerModel.userMaster">
+        <MappingFragment StoreEntitySet="userMaster">
+          <ScalarProperty Name="userMaster_Id" ColumnName="userMaster_Id" />
+          <ScalarProperty Name="userType_Id" ColumnName="userType_Id" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="userAddress" ColumnName="userAddress" />
+          <ScalarProperty Name="contactNumber" ColumnName="contactNumber" />
+          <ScalarProperty Name="emailId" ColumnName="emailId" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userTypes">
+      <EntityTypeMapping TypeName="CandidateTrackerModel.userType">
+        <MappingFragment StoreEntitySet="userType">
+          <ScalarProperty Name="userType_Id" ColumnName="userType_Id" />
+          <ScalarProperty Name="userType_Name" ColumnName="userType_Name" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="clientMasters">
+      <EntityTypeMapping TypeName="CandidateTrackerModel.clientMaster">
+        <MappingFragment StoreEntitySet="clientMaster">
+          <ScalarProperty Name="companyAddress" ColumnName="companyAddress" />
+          <ScalarProperty Name="phoneNo" ColumnName="phoneNo" />
+          <ScalarProperty Name="emailId" ColumnName="emailId" />
+          <ScalarProperty Name="contactPersonName" ColumnName="contactPersonName" />
+          <ScalarProperty Name="companyId" ColumnName="companyId" />
+          <ScalarProperty Name="clientMasterId" ColumnName="clientMasterId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="companyMasters">
+      <EntityTypeMapping TypeName="CandidateTrackerModel.companyMaster">
+        <MappingFragment StoreEntitySet="companyMaster">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
